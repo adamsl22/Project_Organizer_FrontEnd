@@ -1,5 +1,8 @@
 import React from 'react';
-// import BrowserRouter from ''
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Project from './Project'
+import Schedule from './Schedule'
+
 const PROJECTSURL = 'http://localhost:3001/'
 
 class PageContainer extends React.Component {

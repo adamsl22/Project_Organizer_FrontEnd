@@ -1,10 +1,37 @@
-import React from 'react'
+import React from 'react';
+// import BrowserRouter from ''
+const PROJECTSURL = 'http://localhost:3001/'
 
 class PageContainer extends React.Component {
+    state = {
+        view: 'project',
+        projects: []
+    }
+
+    componentDidMount = () => {
+        fetch(PROJECTSURL)
+        .then(resp => resp.json())
+        .then(projects => {this.setState({projects: projects})
+        })
+    }
+
+    renderView = () => {
+        switch (this.state.view) {
+            case 'project':
+                return <Route path='/project' render={routerProps => <Project {...routerProps} projects={this.state.projects}/>} />
+            case 'schedule':
+                return 
+            case 'friends':
+                return
+            case 'todo':
+                return
+        }
+    }
+
     render() {
         return (
         <div id="PageContainer">
-            PC YEAH
+            { this.renderView() }
         </div>
         );
     }

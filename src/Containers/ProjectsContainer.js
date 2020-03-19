@@ -4,11 +4,11 @@ import ProjectCard from '../Components/ProjectCard'
 class ProjectsContainer extends React.Component{
     state = {
         projectIndex: 0,
-        project: this.props.projects[this.state.projectIndex]
+        project: this.props.user.project_cards[this.state.projectIndex]
     }
 
     scrollLeft = () => {
-        const finalIndex = this.props.projects.length - 1
+        const finalIndex = this.props.user.project_cards.length - 1
         if (this.state.projectIndex === 0){
             this.setState({projectIndex: finalIndex})
         } else {
@@ -17,7 +17,7 @@ class ProjectsContainer extends React.Component{
     }
 
     scrollRight = () => {
-        const finalIndex = this.props.projects.length - 1
+        const finalIndex = this.props.user.project_cards.length - 1
         if (this.state.projectIndex === finalIndex){
             this.setState({projectIndex: 0})
         } else {

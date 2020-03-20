@@ -18,7 +18,7 @@ class PageContainer extends React.Component {
             case 'following':
                 return <Route path='/following' render={routerProps => <Following {...routerProps} user={this.props.user}/>} />
             case 'search':
-                return <Route path='/search' render={routerProps => <Search {...routerProps}/>} />
+                return <Route path='/search' render={routerProps => <Search {...routerProps} user={this.props.user}/>} />
         }
     }
 

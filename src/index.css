@@ -13,7 +13,7 @@ code {
 }
 
 #nav {
-
+  background-color: red;
   width: 30%;
   float: left;
   height: 100vh;
@@ -22,6 +22,17 @@ code {
 #PageContainer {
   width: 70%;
 
+  float: right;
+  height: 100vh;
+}
+
+#WelcomePage {
+  background-color: royalblue;
+  width: 70%;
+  text-align: center;
+  padding: 70px 0;
+  justify-content: center;
+  align-content: center;
   float: right;
   height: 100vh;
 }

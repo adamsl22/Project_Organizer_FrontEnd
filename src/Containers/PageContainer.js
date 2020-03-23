@@ -7,7 +7,9 @@ import Following from '../Components/Following'
 import Search from '../Components/Search'
 
 class PageContainer extends React.Component {
+
     renderView = () => {
+<<<<<<< Updated upstream
         switch (this.props.view) {
             case 'projects':
                 return <Route path='/projects' render={routerProps => <ProjectsContainer {...routerProps} user={this.props.user}/>} />
@@ -20,6 +22,22 @@ class PageContainer extends React.Component {
             case 'search':
                 return <Route path='/search' render={routerProps => <Search {...routerProps} user={this.props.user}/>} />
         }
+=======
+        // <Router>
+        // switch (this.props.view) {
+        //     case 'projects':
+        //         return <Route path='/projects' render={routerProps => <ProjectsContainer {...routerProps} user={this.props.user}/>} />
+        //     case 'schedule':
+        //         return <Route path='/schedule' render={routerProps => <Schedule {...routerProps} user={this.props.user}/>} />
+        //     case 'followers':
+        //         return <Route path='/followers' render={routerProps => <Followers {...routerProps} user={this.props.user}/>} />
+        //     case 'following':
+        //         return <Route path='/following' render={routerProps => <Following {...routerProps} user={this.props.user}/>} />
+        //     case 'search':
+        //         return <Route path='/search' render={routerProps => <Search {...routerProps}/>} />
+        // }
+        // </Router>
+>>>>>>> Stashed changes
     }
 
     render() {

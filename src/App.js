@@ -2,7 +2,11 @@ import React from 'react';
 import './App.css';
 import PageContainer from './Containers/PageContainer'
 import Nav from './Components/Nav'
+
 import WelcomePage from './Components/WelcomePage'
+import Project from './Components/Project'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 const USER_URL = "localhost:3001/users"
 
@@ -28,8 +32,12 @@ class App extends React.Component {
     }
   }
 
-  switchView = (e) => {
-    //based on navbar button id?
+  handleNavClick = (e) => {
+    let page = e.target.name
+    this.setState({
+      view: page
+    })
+    console.log(`view: ${this.state.view}`)
   }
 
   setUser = (user) => {

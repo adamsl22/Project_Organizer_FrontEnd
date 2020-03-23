@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 function Nav(props) {
     return (
+      <Router>
       <div id="nav">
         <NavLink exact to="/projects" name="projects" onClick={props.handleNavClick}>
           My Projects
@@ -21,6 +22,7 @@ function Nav(props) {
           Following
         </NavLink>
       </div>
+      </Router>
     );
   }
   

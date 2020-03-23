@@ -4,7 +4,7 @@ import PageContainer from './Containers/PageContainer'
 import Nav from './Components/Nav'
 
 import WelcomePage from './Components/WelcomePage'
-import Project from './Components/Project'
+import ProjectCard from './Components/ProjectCard'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 

@@ -8,21 +8,23 @@ class ProjectsContainer extends React.Component{
     }
 
     scrollLeft = () => {
-        const finalIndex = this.props.user.project_cards.length - 1
-        if (this.state.projectIndex === 0){
-            this.setState({projectIndex: finalIndex})
-        } else {
-            this.setState({projectIndex: this.state.projectIndex - 1})
-        }
+        console.log('slide to the left')
+        // const finalIndex = this.props.user.project_cards.length - 1
+        // if (this.state.projectIndex === 0){
+        //     this.setState({projectIndex: finalIndex})
+        // } else {
+        //     this.setState({projectIndex: this.state.projectIndex - 1})
+        // }
     }
 
     scrollRight = () => {
-        const finalIndex = this.props.user.project_cards.length - 1
-        if (this.state.projectIndex === finalIndex){
-            this.setState({projectIndex: 0})
-        } else {
-            this.setState({projectIndex: this.state.projectIndex + 1})
-        }
+        console.log('slide to the right')
+        // const finalIndex = this.props.user.project_cards.length - 1
+        // if (this.state.projectIndex === finalIndex){
+        //     this.setState({projectIndex: 0})
+        // } else {
+        //     this.setState({projectIndex: this.state.projectIndex + 1})
+        // }
     }
 
     render(){

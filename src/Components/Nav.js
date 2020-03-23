@@ -6,14 +6,13 @@ function Nav(props) {
     return (
       <Router>
       <div id="nav">
-        <button onClick={props.handleNavClick}><div><Link to="/projects" name="projects">Projects</Link></div></button>
-        <button onClick={props.handleNavClick}><div><Link to="/schedule" name="schedule">Schedule</Link></div></button>
-        <button onClick={props.handleNavClick}><div><Link to="/search" name="search">Search</Link></div></button>
-        <button onClick={props.handleNavClick}><div><Link to="/followers" name="followers">Followers</Link></div></button>
-        <button onClick={props.handleNavClick}><div><Link to="/following" name="following">Following</Link></div></button>
-        {/* <Button>
-          <div><span aria-label="person" role="img">👤</span></div>
-        </Button> */}
+        <h2>Name{/*props.user.name*/}</h2><br></br><br></br>
+        <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/projects" name="projects">My Projects</Link></div></button><br></br><br></br><br></br>
+        <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/schedule" name="schedule">My Schedule</Link></div></button><br></br><br></br><br></br>
+        <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/followers" name="followers">Followers</Link></div></button><br></br><br></br><br></br>
+        <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/following" name="following">Following</Link></div></button><br></br><br></br><br></br><br></br><br></br>
+        <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/search" name="search">Search Github</Link></div></button><br></br><br></br><br></br><br></br><br></br>
+        <button className='nav-button' onClick={props.logOut}>Log Out</button>
       </div>
       </Router>
     );

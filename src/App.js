@@ -2,10 +2,7 @@ import React from 'react';
 import './App.css';
 import PageContainer from './Containers/PageContainer'
 import Nav from './Components/Nav'
-
 import WelcomePage from './Components/WelcomePage'
-import ProjectCard from './Components/ProjectCard'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 const USER_URL = "localhost:3001/users"
@@ -48,11 +45,12 @@ class App extends React.Component {
   }
 
   logOut = () => {
-    localStorage.removeItem('user_id')
-    this.setState({
-      loggedIn: false,
-      user: {}
-    })
+    console.log('goodbye')
+    // localStorage.removeItem('user_id')
+    // this.setState({
+    //   loggedIn: false,
+    //   user: {}
+    // })
   }
   
   render(){

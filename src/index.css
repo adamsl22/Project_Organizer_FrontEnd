@@ -63,3 +63,11 @@ a:hover {
   float: right;
   height: 100vh;
 }
+
+.scroll-button {
+  background-color: royalblue;
+  font-size: 18px;
+  height: 30px;
+  width: 150px;
+  margin: 40px;
+}

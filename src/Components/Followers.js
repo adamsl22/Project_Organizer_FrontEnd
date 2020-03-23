@@ -2,7 +2,7 @@ import React from 'react';
 
 function Followers(props){
     return(
-        <div>Followers</div>
+        <h1>My Followers</h1>
     )
 }
 

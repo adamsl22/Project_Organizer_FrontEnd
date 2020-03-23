@@ -30,9 +30,10 @@ class ProjectsContainer extends React.Component{
     render(){
         return(
             <div>
+                <h1>My Projects</h1><br></br>
                 <ProjectCard project={this.state.project} />
-                <button id='left-button' onClick={this.scrollLeft}>Previous Project</button>
-                <button id='right-button' onClick={this.scrollRight}>Next Project</button>
+                <button id='left-button' className='scroll-button' onClick={this.scrollLeft}>Previous Project</button>
+                <button id='right-button' className='scroll-button' onClick={this.scrollRight}>Next Project</button>
             </div>
         )
     }

@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 
 function Nav(props) {
     return (
-      <Router>
       <div id="nav">
         <h2>Name{/*props.user.name*/}</h2><br></br><br></br>
         <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/projects" name="projects">My Projects</Link></div></button><br></br><br></br><br></br>
@@ -14,7 +13,6 @@ function Nav(props) {
         <button className='nav-button' onClick={props.handleNavClick}><div><Link to="/search" name="search">Search Github</Link></div></button><br></br><br></br><br></br><br></br><br></br>
         <button className='nav-button' onClick={props.logOut}>Log Out</button>
       </div>
-      </Router>
     );
   }
   

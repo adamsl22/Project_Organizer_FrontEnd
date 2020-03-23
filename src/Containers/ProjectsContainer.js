@@ -4,7 +4,7 @@ import ProjectCard from '../Components/ProjectCard'
 class ProjectsContainer extends React.Component{
     state = {
         projectIndex: 0,
-        project: this.props.user.project_cards[this.state.projectIndex]
+        // project: this.props.user.project_cards[this.state.projectIndex]
     }
 
     scrollLeft = () => {

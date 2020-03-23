@@ -37,7 +37,6 @@ class App extends React.Component {
     this.setState({
       view: page
     })
-    console.log(`view: ${this.state.view}`)
   }
 
   setUser = (user) => {
@@ -59,8 +58,9 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <Nav loggedIn={this.state.loggedIn} user={this.state.user} switchView={this.switchView} logOut={this.logOut}/>
-        {this.state.loggedIn ? <PageContainer user={this.state.user} view={this.state.view}/> : <WelcomePage setUser={this.setUser}/>}
+        <Nav loggedIn={this.state.loggedIn} user={this.state.user} handleNavClick={this.handleNavClick} logOut={this.logOut}/>
+        {/* {this.state.loggedIn ? <PageContainer user={this.state.user} view={this.state.view}/> : <WelcomePage setUser={this.setUser}/>} */}
+        <PageContainer user={this.state.user} view={this.state.view}/>
       </div>
     );
   }

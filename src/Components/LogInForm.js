@@ -45,6 +45,7 @@ class LogInForm extends React.Component {
                 Name: <input name='name' value={this.state.name} onChange={this.handleChange} placeholder='name'/>
                 Github username: <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username'/>
                 Github password: <input name='password' type='password' value={this.state.password} onChange={this.handleChange} placeholder='password'/>
+                <button type="submit">Submit</button>
             </form>
         )
     }

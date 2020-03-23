@@ -71,3 +71,16 @@ a:hover {
   width: 150px;
   margin: 40px;
 }
+
+#search-page {
+  padding-top: 20%;
+  color: purple;
+}
+
+#search-button {
+  height: 21px;
+  font-size: 13px;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+}

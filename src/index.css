@@ -95,7 +95,7 @@ a:hover {
   font-size: 25px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 100px;
 }
 
 .schedule-time {
@@ -105,4 +105,8 @@ a:hover {
 
 .schedule-cell {
   justify-content: top;
+}
+
+#current-time {
+  background-color: yellow;
 }

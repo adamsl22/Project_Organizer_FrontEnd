@@ -8,7 +8,7 @@ class ScheduleCell extends React.Component{
         const minute = parseInt(this.props.time.split(':')[1])
         return (
             <div className='schedule-cell'>
-                {this.props.h === hour && this.props.m[0] < minute && this.props.m[1] > minute && this.props.d === 0 && <div>current</div>}
+                {this.props.h === hour && this.props.m[0] < minute && this.props.m[1] > minute && this.props.d === 0 && <div id='current-time'>current</div>}
             </div>
         )
     }

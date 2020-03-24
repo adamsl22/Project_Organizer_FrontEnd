@@ -4,10 +4,10 @@ class ScheduleCell extends React.Component{
 
 
     render(){
-        const hour = this.props.time.split(':')[0]
-        const minute = this.props.time.split(':')[1]
+        const hour = parseInt(this.props.time.split(':')[0])
+        const minute = parseInt(this.props.time.split(':')[1])
         return (
-            <div>
+            <div className='schedule-cell'>
                 {this.props.h === hour && this.props.m[0] < minute && this.props.m[1] > minute && this.props.d === 0 && <div>current</div>}
             </div>
         )

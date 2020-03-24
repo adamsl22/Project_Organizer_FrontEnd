@@ -41,7 +41,7 @@ class Schedule extends React.Component{
             <div>
                 <h1>My Schedule</h1>
                 Currently: {this.state.currentDate}, {this.state.currentTime}
-                <br></br><br></br><br></br>
+                <br></br>
                 <div id="schedule">
                     <div className="schedule-header">Time</div>
                     <div className="schedule-header">{this.state.today}</div>

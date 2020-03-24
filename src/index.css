@@ -102,3 +102,7 @@ a:hover {
   font-weight: bold;
   text-align: right;
 }
+
+.schedule-cell {
+  justify-content: top;
+}

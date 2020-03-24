@@ -83,3 +83,22 @@ a:hover {
   color: white;
   font-weight: bold;
 }
+
+#schedule {
+  display: grid;
+  grid-template-columns: 10% 30% 30% 30%;
+  grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+  grid-row-gap: 3px;
+}
+
+.schedule-header {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.schedule-time {
+  font-weight: bold;
+  text-align: right;
+}

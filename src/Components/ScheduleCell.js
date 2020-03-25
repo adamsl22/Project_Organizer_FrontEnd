@@ -16,11 +16,31 @@ class ScheduleCell extends React.Component{
     }
 
     renderToDo = () => {
+        const months31 = ['1','3','5','7','8','10','12']
+        const months30 = ['4','6','9','11']
+        const currentMonth = this.props.date.split('-')[0]
+        const currentDay = parseInt(this.props.date.split('-')[1])
         this.state.toDos.forEach(toDo => {
-            const toDoMonth = toDo.date.split('-')[0]
-            const toDoDay = parseInt(toDo.date.split('-')[1])
-            const currentMonth = this.props.date.split('-')[0]
-            const currentDay = parseInt(this.props.date.split('-')[1])
+            let toDoMonth = toDo.date.split('-')[0]
+            let toDoDay = parseInt(toDo.date.split('-')[1])
+            if (toDoDay < 3 && this.props.d > 0){
+                if (months31.includes(currentMonth) && currentDay > 29){
+                    const prevMonth = toDoMonth - 1
+                    toDoMonth = prevMonth
+                    const fakeDay = 31 + toDoDay
+                    toDoDay = fakeDay
+                } else if (months30.includes(currentMonth) && currentDay > 28){
+                    const prevMonth = toDoMonth - 1
+                    toDoMonth = prevMonth
+                    const fakeDay = 30 + toDoDay
+                    toDoDay = fakeDay
+                } else if (currentMonth === '2' && currentDay > 26){
+                    const prevMonth = toDoMonth - 1
+                    toDoMonth = prevMonth
+                    const fakeDay = 28 + toDoDay
+                    toDoDay = fakeDay
+                }
+            }
             const startHour = parseInt(toDo.starttime.split(':')[0])
             const startMinute = parseInt(toDo.starttime.split(':')[1])
             const endHour = parseInt(toDo.endtime.split(':')[0])

@@ -52,6 +52,34 @@ a:hover {
   height: 100vh;
 }
 
+#ProjectsContainer {
+  align-content: center;
+  justify-content: center;
+}
+
+:root {
+  --bc: burlywood;
+}
+
+.project-card {
+  text-align: center;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  background-color: var(--bc);
+}
+
+.card-button {
+  background-color: rgb(192, 192, 192);
+  height: 20px;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.li {
+  margin-top: 10px;
+}
+
 #WelcomePage {
   background-color: royalblue;
   width: 70%;

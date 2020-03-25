@@ -29,19 +29,19 @@ class ToDoForm extends React.Component {
             starttime: this.state.starttime,
             endtime: this.state.endtime
         }
-        fetch(TO_DO_URL,{
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                accept: 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(resp => resp.json())
-        .then(
-            this.props.addToDo(data),
+        // fetch(TO_DO_URL,{
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json',
+        //         accept: 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // })
+        // .then(resp => resp.json())
+        // .then(
+            this.props.addToDo(data)
             this.props.toggleForm()
-        )
+        // )
     }
 
     render(){
@@ -54,8 +54,8 @@ class ToDoForm extends React.Component {
                 Starting Time: <input name='starttime' value={this.state.starttime} onChange={this.handleChange}/><br></br>
                 Ending Time: <input name='endtime' value={this.state.endtime} onChange={this.handleChange}/>
                 </div>
-                : <button onClick={this.toggleScheduleEntry}>Schedule this task?</button>}<br></br><br></br>
-                <button type="submit">Submit</button>
+                : <button className='card-button' onClick={this.toggleScheduleEntry}>Schedule this task?</button>}<br></br><br></br>
+                <button className='card-button' type="submit">Submit</button>
             </form>
         )
     }

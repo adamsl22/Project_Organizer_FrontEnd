@@ -20,7 +20,7 @@ class ScheduleCell extends React.Component{
         const months30 = ['4','6','9','11']
         const currentMonth = this.props.date.split('-')[0]
         const currentDay = parseInt(this.props.date.split('-')[1])
-        this.state.toDos.forEach(toDo => {
+        return this.state.toDos.map(toDo => {
             let toDoMonth = toDo.date.split('-')[0]
             let toDoDay = parseInt(toDo.date.split('-')[1])
             if (toDoDay < 3 && this.props.d > 0){
@@ -48,39 +48,30 @@ class ScheduleCell extends React.Component{
             if (toDoMonth === currentMonth && toDoDay === currentDay + this.props.d){
                 if (startMinute === 0 && endMinute === 0){
                     if (this.props.h >= startHour && this.props.h < endHour){
-                        console.log(this.props.d, this.props.h, toDo.description)
                         return toDo.description
                     }
                 } else if (startMinute === 30 && endMinute === 0){
                     if (this.props.h < endHour){
                         if (this.props.h > startHour){
-                            console.log(this.props.d, this.props.h, toDo.description)
                             return toDo.description
                         } else if (this.props.h === startHour && this.props.m[0] === 29){
-                            console.log(this.props.d, this.props.h, toDo.description)
                             return toDo.description
                         }
                     }
                 } else if (startMinute === 0 && endMinute === 30){
                     if (this.props.h >= startHour){
                         if (this.props.h < endHour){
-                            console.log(this.props.d, this.props.h, toDo.description)
                             return toDo.description
                         } else if (this.props.h === endHour && this.props.m[0] === -1){
-                            console.log(this.props.d, this.props.h, toDo.description)
                             return toDo.description
                         }
                     }
                 } else if (startMinute === 30 && endMinute === 30){
                     if (this.props.h > startHour && this.props.h < endHour){
-                        console.log(this.props.d, this.props.h, toDo.description)
                         return toDo.description
                     } else if (this.props.h === startHour && this.props.m[0] === 29){
-                        console.log(this.props.d, this.props.h, toDo.description)
                         return toDo.description
-                    }
-                    else if (this.props.h === endHour && this.props.m[0] === -1){
-                        console.log(this.props.d, this.props.h, toDo.description)
+                    } else if (this.props.h === endHour && this.props.m[0] === -1){
                         return toDo.description
                     }
                 }

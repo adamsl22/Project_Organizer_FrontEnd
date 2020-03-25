@@ -54,7 +54,7 @@ class ScheduleCell extends React.Component{
                     if (this.props.h < endHour){
                         if (this.props.h > startHour){
                             return toDo.description
-                        } else if (this.props.h === startHour && this.props.m[0] === 29){
+                        } else if (this.props.h === startHour && this.props.m === 30){
                             return toDo.description
                         }
                     }
@@ -62,16 +62,16 @@ class ScheduleCell extends React.Component{
                     if (this.props.h >= startHour){
                         if (this.props.h < endHour){
                             return toDo.description
-                        } else if (this.props.h === endHour && this.props.m[0] === -1){
+                        } else if (this.props.h === endHour && this.props.m === 0){
                             return toDo.description
                         }
                     }
                 } else if (startMinute === 30 && endMinute === 30){
                     if (this.props.h > startHour && this.props.h < endHour){
                         return toDo.description
-                    } else if (this.props.h === startHour && this.props.m[0] === 29){
+                    } else if (this.props.h === startHour && this.props.m === 30){
                         return toDo.description
-                    } else if (this.props.h === endHour && this.props.m[0] === -1){
+                    } else if (this.props.h === endHour && this.props.m === 0){
                         return toDo.description
                     }
                 }
@@ -84,7 +84,8 @@ class ScheduleCell extends React.Component{
         const minute = parseInt(this.props.time.split(':')[1])
         return (
             <div className='schedule-cell'>
-                {this.props.h === hour && this.props.m[0] < minute && this.props.m[1] > minute && this.props.d === 0 ? <div id='current-time'>Now: {this.renderToDo()}</div> : <div className='sched-todo'>{this.renderToDo()}</div>}
+                {this.props.h === hour && minute - this.props.m >= 0 && minute - this.props.m < 30 && this.props.d === 0 ?
+                <div id='current-time'>Now: {this.renderToDo()}</div> : <div className='sched-todo'>{this.renderToDo()}</div>}
             </div>
         )
     }

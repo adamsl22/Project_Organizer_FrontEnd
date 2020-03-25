@@ -110,3 +110,7 @@ a:hover {
 #current-time {
   background-color: yellow;
 }
+
+.sched-todo {
+  background-color: rgb(53, 122, 200);
+}

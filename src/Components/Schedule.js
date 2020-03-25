@@ -14,7 +14,7 @@ class Schedule extends React.Component{
         const present = new Date();
         const weekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         this.setState({
-            currentDate: weekArray[present.getDay()] + ', ' + (present.getMonth()+1) + '-' + present.getDate(),
+            currentDate: (present.getMonth()+1) + '-' + present.getDate(),
             today: weekArray[present.getDay()],
             currentTime: present.getHours() + ':' + present.getMinutes()
         })
@@ -48,77 +48,77 @@ class Schedule extends React.Component{
                     <div className="schedule-header">{this.state.tomorrow}</div>
                     <div className="schedule-header">{this.state.dayAfterTomorrow}</div>
                     <div className="schedule-time">9:00 AM</div>
-                    <ScheduleCell h={9} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={9} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={9} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={9} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={9} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={9} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">9:30 AM</div>
-                    <ScheduleCell h={9} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={9} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={9} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={9} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={9} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={9} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">10:00 AM</div>
-                    <ScheduleCell h={10} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={10} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={10} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={10} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={10} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={10} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">10:30 AM</div>
-                    <ScheduleCell h={10} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={10} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={10} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={10} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={10} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={10} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">11:00 AM</div>
-                    <ScheduleCell h={11} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={11} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={11} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={11} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={11} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={11} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">11:30 AM</div>
-                    <ScheduleCell h={11} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={11} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={11} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={11} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={11} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={11} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">12:00 PM</div>
-                    <ScheduleCell h={12} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={12} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={12} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={12} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={12} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={12} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">12:30 PM</div>
-                    <ScheduleCell h={12} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={12} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={12} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={12} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={12} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={12} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">1:00 PM</div>
-                    <ScheduleCell h={13} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={13} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={13} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={13} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={13} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={13} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">1:30 PM</div>
-                    <ScheduleCell h={13} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={13} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={13} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={13} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={13} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={13} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">2:00 PM</div>
-                    <ScheduleCell h={14} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={14} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={14} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={14} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={14} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={14} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">2:30 PM</div>
-                    <ScheduleCell h={14} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={14} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={14} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={14} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={14} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={14} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">3:00 PM</div>
-                    <ScheduleCell h={15} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={15} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={15} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={15} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={15} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={15} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">3:30 PM</div>
-                    <ScheduleCell h={15} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={15} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={15} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={15} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={15} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={15} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">4:00 PM</div>
-                    <ScheduleCell h={16} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={16} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={16} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={16} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={16} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={16} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">4:30 PM</div>
-                    <ScheduleCell h={16} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={16} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={16} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={16} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={16} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={16} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">5:00 PM</div>
-                    <ScheduleCell h={17} m={[-1, 30]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={17} m={[-1, 30]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={17} m={[-1, 30]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={17} m={[-1, 30]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={17} m={[-1, 30]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={17} m={[-1, 30]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                     <div className="schedule-time">5:30 PM</div>
-                    <ScheduleCell h={17} m={[29, 60]} d={0} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={17} m={[29, 60]} d={1} time={this.state.currentTime} user={this.props.user}/>
-                    <ScheduleCell h={17} m={[29, 60]} d={2} time={this.state.currentTime} user={this.props.user}/>
+                    <ScheduleCell h={17} m={[29, 60]} d={0} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={17} m={[29, 60]} d={1} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
+                    <ScheduleCell h={17} m={[29, 60]} d={2} time={this.state.currentTime} date={this.state.currentDate} user={this.props.user}/>
                 </div>
             </div>
         )

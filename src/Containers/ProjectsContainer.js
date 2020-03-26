@@ -6,7 +6,7 @@ class ProjectsContainer extends React.Component{
     state = {
         projectIndex: 0,
         showNewProjectForm: false,
-        project: this.props.user.project_cards[this.state.projectIndex]
+        project: null
         // project: {
         //     name: 'Sample Project',
         //     logo: 'Image goes here',
@@ -29,8 +29,13 @@ class ProjectsContainer extends React.Component{
         // }
     }
 
+    componentDidMount(){
+        if (this.props.user.project_cards){
+            this.setState({project: this.props.user.project_cards[this.state.projectIndex]})
+        }
+    }
+
     scrollLeft = () => {
-        console.log('slide to the left')
         const finalIndex = this.props.user.project_cards.length - 1
         if (this.state.projectIndex === 0){
             this.setState({projectIndex: finalIndex})
@@ -40,7 +45,6 @@ class ProjectsContainer extends React.Component{
     }
 
     scrollRight = () => {
-        console.log('slide to the right')
         const finalIndex = this.props.user.project_cards.length - 1
         if (this.state.projectIndex === finalIndex){
             this.setState({projectIndex: 0})
@@ -86,11 +90,11 @@ class ProjectsContainer extends React.Component{
                 {this.state.showNewProjectForm ?
                 <NewProjectForm user={this.props.user} toggleForm={this.toggleNewProjectForm} showNewProject={this.showNewProject}/>
                 : <div id='ProjectsInner'><h1>My Projects</h1><br></br>
-                <ProjectCard key={this.state.project.id} project={this.state.project} addToDo={this.addToDo}/>
+                {this.state.project ? <div><ProjectCard key={this.state.project.id} project={this.state.project} addToDo={this.addToDo}/>
                 <div>
                     <button id='left-button' className='scroll-button' onClick={this.scrollLeft}>Previous Project</button>
                     <button id='right-button' className='scroll-button' onClick={this.scrollRight}>Next Project</button>
-                </div>
+                </div></div> : null }
                 <button id='new-project-button' onClick={this.toggleNewProjectForm}>Add New Project</button></div>}
             </div>
         )

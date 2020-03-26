@@ -8,7 +8,6 @@ class WelcomePage extends React.Component{
 
     renderWelcome = () => {
         if (this.state.userNorR === null) {
-            console.log('hi')
             return (
                 <div>
                     <h1>Welcome</h1>

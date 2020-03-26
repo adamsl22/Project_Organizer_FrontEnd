@@ -29,19 +29,19 @@ class ToDoForm extends React.Component {
             starttime: this.state.starttime,
             endtime: this.state.endtime
         }
-        // fetch(TO_DO_URL,{
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         accept: 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        // .then(resp => resp.json())
-        // .then(
-            this.props.addToDo(data)
+        fetch(TO_DO_URL,{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                accept: 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(resp => resp.json())
+        .then(
+            this.props.addToDo(data),
             this.props.toggleForm()
-        // )
+        )
     }
 
     render(){

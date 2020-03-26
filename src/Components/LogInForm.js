@@ -15,7 +15,6 @@ class LogInForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        //github verification
         switch (this.props.userNorR) {
             case 'R':
                 fetch(USER_URL)
@@ -43,8 +42,8 @@ class LogInForm extends React.Component {
         return(
             <form onSubmit={this.handleSubmit}>
                 Name: <input name='name' value={this.state.name} onChange={this.handleChange} placeholder='name'/>
-                Github username: <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username'/>
-                Github password: <input name='password' type='password' value={this.state.password} onChange={this.handleChange} placeholder='password'/>
+                Username: <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username'/>
+                Password: <input name='password' type='password' value={this.state.password} onChange={this.handleChange} placeholder='password'/>
                 <button type="submit">Submit</button>
             </form>
         )

@@ -1,26 +1,30 @@
 import React from 'react';
 
 class ScheduleCell extends React.Component{
-    state = {
-        toDos: [{
-            description: 'do X',
-            date: '3-25',
-            starttime: '13:30',
-            endtime: '15:00'
-        }, {
-            description: 'do Y',
-            date: '3-26',
-            starttime: '11:30',
-            endtime: '13:30'
-        }]
-    };
+    // state = {
+    //     toDos: [{
+    //         description: 'do X',
+    //         date: '3-25',
+    //         starttime: '13:30',
+    //         endtime: '15:00'
+    //     }, {
+    //         description: 'do Y',
+    //         date: '3-26',
+    //         starttime: '11:30',
+    //         endtime: '13:30'
+    //     }]
+    // };
 
     renderToDo = () => {
+        let toDos = []
+        this.props.user.project_cards.forEach(project_card => {
+            project_card.to_dos.forEach(to_do => toDos.push(to_do))
+        })
         const months31 = [1,3,5,7,8,10,12];
         const months30 = [4,6,9,11];
         const currentMonth = parseInt(this.props.date.split('-')[0]);
         const currentDay = parseInt(this.props.date.split('-')[1]);
-        return this.state.toDos.map(toDo => {
+        return toDos.map(toDo => {
             let toDoMonth = parseInt(toDo.date.split('-')[0]);
             let toDoDay = parseInt(toDo.date.split('-')[1]);
             if (toDoDay < 3 && this.props.d > 0){

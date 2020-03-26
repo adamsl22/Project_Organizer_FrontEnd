@@ -45,20 +45,19 @@ class App extends React.Component {
   }
 
   logOut = () => {
-    console.log('goodbye')
-    // localStorage.removeItem('user_id')
-    // this.setState({
-    //   loggedIn: false,
-    //   user: {}
-    // })
+    localStorage.removeItem('user_id')
+    this.setState({
+      loggedIn: false,
+      user: {}
+    })
   }
   
   render(){
     return (
       <div className="App">
         <Nav loggedIn={this.state.loggedIn} user={this.state.user} handleNavClick={this.handleNavClick} logOut={this.logOut}/>
-        {/* {this.state.loggedIn ? <PageContainer user={this.state.user} view={this.state.view}/> : <WelcomePage setUser={this.setUser}/>} */}
-        <PageContainer user={this.state.user} view={this.state.view}/>
+        {this.state.loggedIn ? <PageContainer user={this.state.user} view={this.state.view}/> : <WelcomePage setUser={this.setUser}/>}
+        {/* <PageContainer user={this.state.user} view={this.state.view}/> */}
       </div>
     );
   }

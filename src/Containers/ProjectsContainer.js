@@ -6,47 +6,47 @@ class ProjectsContainer extends React.Component{
     state = {
         projectIndex: 0,
         showNewProjectForm: false,
-        // project: this.props.user.project_cards[this.state.projectIndex]
-        project: {
-            name: 'Sample Project',
-            logo: 'Image goes here',
-            description: 'Awesomesauce project',
-            status: 'In progress',
-            repoLink: 'Link goes here',
-            color: 'orange',
-            notes: '',
-            toDos: [{
-                description: 'do X',
-                date: '3-25',
-                starttime: '13:30',
-                endtime: '15:00'
-            }, {
-                description: 'do Y',
-                date: '3-26',
-                starttime: '11:30',
-                endtime: '13:30'
-            }]
-        }
+        project: this.props.user.project_cards[this.state.projectIndex]
+        // project: {
+        //     name: 'Sample Project',
+        //     logo: 'Image goes here',
+        //     description: 'Awesomesauce project',
+        //     status: 'In progress',
+        //     repoLink: 'Link goes here',
+        //     color: 'orange',
+        //     notes: '',
+        //     toDos: [{
+        //         description: 'do X',
+        //         date: '3-25',
+        //         starttime: '13:30',
+        //         endtime: '15:00'
+        //     }, {
+        //         description: 'do Y',
+        //         date: '3-26',
+        //         starttime: '11:30',
+        //         endtime: '13:30'
+        //     }]
+        // }
     }
 
     scrollLeft = () => {
         console.log('slide to the left')
-        // const finalIndex = this.props.user.project_cards.length - 1
-        // if (this.state.projectIndex === 0){
-        //     this.setState({projectIndex: finalIndex})
-        // } else {
-        //     this.setState({projectIndex: this.state.projectIndex - 1})
-        // }
+        const finalIndex = this.props.user.project_cards.length - 1
+        if (this.state.projectIndex === 0){
+            this.setState({projectIndex: finalIndex})
+        } else {
+            this.setState({projectIndex: this.state.projectIndex - 1})
+        }
     }
 
     scrollRight = () => {
         console.log('slide to the right')
-        // const finalIndex = this.props.user.project_cards.length - 1
-        // if (this.state.projectIndex === finalIndex){
-        //     this.setState({projectIndex: 0})
-        // } else {
-        //     this.setState({projectIndex: this.state.projectIndex + 1})
-        // }
+        const finalIndex = this.props.user.project_cards.length - 1
+        if (this.state.projectIndex === finalIndex){
+            this.setState({projectIndex: 0})
+        } else {
+            this.setState({projectIndex: this.state.projectIndex + 1})
+        }
     }
 
     toggleNewProjectForm = () => {
@@ -55,8 +55,8 @@ class ProjectsContainer extends React.Component{
 
     addToDo = (data) => {
         let updateToDos
-        if (this.state.project.toDos){
-            updateToDos = [...this.state.project.toDos, data]
+        if (this.state.project.to_dos){
+            updateToDos = [...this.state.project.to_dos, data]
         } else {
             updateToDos = [data]
         }
@@ -65,17 +65,17 @@ class ProjectsContainer extends React.Component{
             logo: this.state.project.logo,
             description: this.state.project.description,
             status: this.state.project.status,
-            repo_link: this.state.project.repoLink,
+            repo_link: this.state.project.repo_link,
             color: this.state.project.color,
             notes: this.state.project.notes,
-            toDos: updateToDos
+            to_dos: updateToDos
         }
         this.setState({project: updateProject})
     }
 
     showNewProject = (data) => {
         this.setState({
-            // projectIndex: this.props.user.project_cards.length - 1,
+            projectIndex: this.props.user.project_cards.length - 1,
             project: data
         })
     }

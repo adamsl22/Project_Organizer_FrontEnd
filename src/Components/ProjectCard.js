@@ -29,7 +29,7 @@ class ProjectCard extends React.Component{
     return (
       <div>
         <h2>{this.props.project.name}</h2>
-        <h3>Tasks: {this.props.project.toDos.map(toDo => <li className='li'>{toDo.description}</li>)}</h3>
+        <h3>Tasks: {this.props.project.toDos && this.props.project.toDos.map(toDo => <li className='li'>{toDo.description}</li>)}</h3>
         {this.state.showingToDoForm ?
         <ToDoForm project_id={this.props.project.id} addToDo={this.props.addToDo} toggleForm={this.toggleToDoForm}/>
         : <button className='card-button' onClick={this.toggleToDoForm}>Add Task</button>}

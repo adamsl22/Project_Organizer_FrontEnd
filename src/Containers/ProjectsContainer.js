@@ -1,9 +1,11 @@
 import React from 'react';
 import ProjectCard from '../Components/ProjectCard'
+import NewProjectForm from '../Components/NewProjectForm'
 
 class ProjectsContainer extends React.Component{
     state = {
         projectIndex: 0,
+        showNewProjectForm: false,
         // project: this.props.user.project_cards[this.state.projectIndex]
         project: {
             name: 'Sample Project',
@@ -47,28 +49,49 @@ class ProjectsContainer extends React.Component{
         // }
     }
 
+    toggleNewProjectForm = () => {
+        this.setState(prevState => ({showNewProjectForm: !prevState.showNewProjectForm}))
+    }
+
     addToDo = (data) => {
-        const updateToDos = [...this.state.project.toDos, data]
+        let updateToDos
+        if (this.state.project.toDos){
+            updateToDos = [...this.state.project.toDos, data]
+        } else {
+            updateToDos = [data]
+        }
         const updateProject = {
             name: this.state.project.name,
             logo: this.state.project.logo,
             description: this.state.project.description,
             status: this.state.project.status,
             repo_link: this.state.project.repoLink,
+            color: this.state.project.color,
+            notes: this.state.project.notes,
             toDos: updateToDos
         }
         this.setState({project: updateProject})
     }
 
+    showNewProject = (data) => {
+        this.setState({
+            // projectIndex: this.props.user.project_cards.length - 1,
+            project: data
+        })
+    }
+
     render(){
         return(
             <div id='ProjectsContainer'>
-                <h1>My Projects</h1><br></br>
+                {this.state.showNewProjectForm ?
+                <NewProjectForm user={this.props.user} toggleForm={this.toggleNewProjectForm} showNewProject={this.showNewProject}/>
+                : <div id='ProjectsInner'><h1>My Projects</h1><br></br>
                 <ProjectCard key={this.state.project.id} project={this.state.project} addToDo={this.addToDo}/>
                 <div>
                     <button id='left-button' className='scroll-button' onClick={this.scrollLeft}>Previous Project</button>
                     <button id='right-button' className='scroll-button' onClick={this.scrollRight}>Next Project</button>
                 </div>
+                <button id='new-project-button' onClick={this.toggleNewProjectForm}>Add New Project</button></div>}
             </div>
         )
     }

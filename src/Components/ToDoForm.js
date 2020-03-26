@@ -8,7 +8,7 @@ class ToDoForm extends React.Component {
         description: '',
         date: '',
         starttime: '',
-        endtime: '',
+        endtime: ''
     }
 
     toggleScheduleEntry = () => {

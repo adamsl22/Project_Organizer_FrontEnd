@@ -102,6 +102,31 @@ a:hover {
   margin: 40px;
 }
 
+#new-project-button {
+  background-color: royalblue;
+  font-size: 18px;
+  height: 30px;
+  width: 200px;
+  align-self: center;
+}
+
+#NewProjectForm {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-start;
+  width: 500px;
+  align-self: center;
+  background-color: rgb(214, 219, 188);
+}
+
+#ProjectsInner {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-start;
+}
+
 #search-page {
   padding-top: 20%;
   color: purple;

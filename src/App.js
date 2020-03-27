@@ -5,7 +5,7 @@ import Nav from './Components/Nav'
 import WelcomePage from './Components/WelcomePage'
 
 
-const USER_URL = "localhost:3001/users"
+const USER_URL = "http://localhost:3001/users"
 
 class App extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class App extends React.Component {
       fetch(USER_URL)
       .then(resp => resp.json())
       .then(users => {
-        const user = users.filter(user => user.username === this.state.username)[0]
+        const user = users.filter(user => user.id == user_id)[0]
         this.setState({
           loggedIn: true,
           user: user

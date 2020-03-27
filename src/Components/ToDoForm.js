@@ -1,7 +1,5 @@
 import React from 'react';
 
-const TO_DO_URL = "localhost:3001/to_dos"
-
 class ToDoForm extends React.Component {
     state = {
         scheduling: false,
@@ -24,12 +22,12 @@ class ToDoForm extends React.Component {
         const data = {
             description: this.state.description,
             completed: false,
-            project_id: this.props.project_id,
+            project_card_id: this.props.project_id,
             date: this.state.date,
             starttime: this.state.starttime,
             endtime: this.state.endtime
         }
-        fetch(TO_DO_URL,{
+        fetch(this.props.url,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

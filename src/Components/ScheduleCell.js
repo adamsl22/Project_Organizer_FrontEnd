@@ -1,30 +1,37 @@
 import React from 'react';
 
+const PROJCARD_URL = "http://localhost:3001/project_cards"
+const TO_DO_URL = "http://localhost:3001/to_dos"
+
 class ScheduleCell extends React.Component{
-    // state = {
-    //     toDos: [{
-    //         description: 'do X',
-    //         date: '3-25',
-    //         starttime: '13:30',
-    //         endtime: '15:00'
-    //     }, {
-    //         description: 'do Y',
-    //         date: '3-26',
-    //         starttime: '11:30',
-    //         endtime: '13:30'
-    //     }]
-    // };
+    state = {
+        toDos: []
+    };
+
+    componentDidMount(){
+        fetch(PROJCARD_URL)
+        .then(resp => resp.json())
+        .then(projects => {
+            const userProjectIds = projects.filter(project => project.user_id === this.props.user.id).map(project => project.id)
+            fetch(TO_DO_URL)
+            .then(resp => resp.json())
+            .then(toDos => {
+                const userToDos = toDos.filter(toDo => userProjectIds.includes(toDo.project_card_id))
+                if (userToDos){
+                    this.setState({
+                        toDos: userToDos
+                    })
+                }
+            })
+        })
+    }
 
     renderToDo = () => {
-        let toDos = []
-        this.props.user.project_cards.forEach(project_card => {
-            project_card.to_dos.forEach(to_do => toDos.push(to_do))
-        })
         const months31 = [1,3,5,7,8,10,12];
         const months30 = [4,6,9,11];
         const currentMonth = parseInt(this.props.date.split('-')[0]);
         const currentDay = parseInt(this.props.date.split('-')[1]);
-        return toDos.map(toDo => {
+        return this.state.toDos.map(toDo => {
             let toDoMonth = parseInt(toDo.date.split('-')[0]);
             let toDoDay = parseInt(toDo.date.split('-')[1]);
             if (toDoDay < 3 && this.props.d > 0){

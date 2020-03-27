@@ -1,6 +1,6 @@
 import React from 'react';
 
-const USER_URL = "localhost:3001/users"
+const USER_URL = "http://localhost:3001/users"
 
 class LogInForm extends React.Component {
     state = {
@@ -25,6 +25,7 @@ class LogInForm extends React.Component {
                 })
                 break
             case 'N':
+                console.log(this.state.username, this.state.name)
                 fetch(USER_URL,{
                     method: 'POST',
                     headers: {

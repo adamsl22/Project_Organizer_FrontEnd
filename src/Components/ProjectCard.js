@@ -1,11 +1,27 @@
 import React from 'react';
 import ToDoForm from './ToDoForm'
 
+const TO_DO_URL = "http://localhost:3001/to_dos"
+
 class ProjectCard extends React.Component{
   state = {
     showingFront: true,
     showingToDoForm: false,
-    showingNoteForm: false
+    showingNoteForm: false,
+    toDos: []
+  }
+
+  componentDidMount(){
+    fetch(TO_DO_URL)
+    .then(resp => resp.json())
+    .then(toDos => {
+      const project_toDos = toDos.filter(toDo => toDo.project_card_id === this.props.project.id)
+      if (project_toDos){
+        this.setState({
+            toDos: project_toDos
+        })
+      }
+    })
   }
   
   toggleShowingFront = () => {
@@ -16,10 +32,10 @@ class ProjectCard extends React.Component{
     return (
       <div>
         <h2>{this.props.project.name}</h2>
-        <image src={this.props.project.logo}>image goes here</image>
+        <img src={this.props.project.logo}></img>
         <p>{this.props.project.description}</p>
         <p>Status: {this.props.project.status}</p>
-        <p>Repository Link: <a href={this.props.project.repo_link}>link</a></p>
+        <p>Repository Link: <a href={this.props.project.repo_link}>{this.props.project.repo_link}</a></p>
         <button className='card-button' onClick={this.toggleShowingFront}>Show Back</button>
       </div>
     )
@@ -29,9 +45,9 @@ class ProjectCard extends React.Component{
     return (
       <div>
         <h2>{this.props.project.name}</h2>
-        <h3>Tasks: {this.props.project.to_dos && this.props.project.to_dos.map(toDo => <li className='li'>{toDo.description}</li>)}</h3>
+        <h3>Tasks: {this.state.toDos && this.state.toDos.map(toDo => <li key={toDo.id} className='li'>{toDo.description}</li>)}</h3>
         {this.state.showingToDoForm ?
-        <ToDoForm project_id={this.props.project.id} addToDo={this.props.addToDo} toggleForm={this.toggleToDoForm}/>
+        <ToDoForm url={TO_DO_URL} project_id={this.props.project.id} addToDo={this.addToDo} toggleForm={this.toggleToDoForm}/>
         : <button className='card-button' onClick={this.toggleToDoForm}>Add Task</button>}
         <br></br><br></br>
         {/* {this.props.project.notes ?
@@ -50,6 +66,16 @@ class ProjectCard extends React.Component{
   toggleNoteForm = () => {
     this.setState(prevState => ({showingNoteForm: !prevState.showingNoteForm}))
   }
+
+  addToDo = (data) => {
+    let updateToDos
+    if (this.state.toDos){
+        updateToDos = [...this.state.toDos, data]
+    } else {
+        updateToDos = [data]
+    }
+    this.setState({toDos: updateToDos})
+}
 
   render(){
     document.documentElement.style.setProperty('--bc', this.props.project.color)

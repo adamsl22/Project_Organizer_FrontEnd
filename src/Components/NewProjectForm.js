@@ -1,7 +1,5 @@
 import React from 'react';
 
-const PROJCARD_URL = "localhost:3001/project_cards"
-
 class NewProjectForm extends React.Component {
     state = {
         name: '',
@@ -29,7 +27,7 @@ class NewProjectForm extends React.Component {
             user_id: this.props.user.id,
             color: this.state.color
         }
-        fetch(PROJCARD_URL,{
+        fetch(this.props.url,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

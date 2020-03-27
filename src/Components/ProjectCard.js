@@ -81,7 +81,7 @@ class ProjectCard extends React.Component{
 
   deleteToDo = (e) => {
     fetch(`${TO_DO_URL}/${e.target.id}`,{method: 'DELETE'})
-    const updateToDos = this.state.toDos.filter(toDo => toDo.id !== e.target.id)
+    const updateToDos = this.state.toDos.filter(toDo => toDo.id != e.target.id)
     this.setState({toDos: updateToDos})
   }
 

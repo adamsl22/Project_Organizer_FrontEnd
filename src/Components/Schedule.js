@@ -40,8 +40,8 @@ class Schedule extends React.Component{
         return(
             <div>
                 <h1>My Schedule</h1>
-                Currently: {this.state.currentDate}, {this.state.currentTime}
-                <br></br>
+                {/* Currently: {this.state.currentDate}, {this.state.currentTime}
+                <br></br> */}
                 <div id="schedule">
                     <div className="schedule-header">Time</div>
                     <div className="schedule-header">{this.state.today}</div>

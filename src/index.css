@@ -15,7 +15,7 @@ code {
 #nav {
   background-color: rgb(133, 10, 10);
   color: yellow;
-  width: 30%;
+  width: 20%;
   float: left;
   height: 100vh;
   padding-top: 5px;
@@ -47,7 +47,7 @@ a:hover {
 }
 
 #PageContainer {
-  width: 70%;
+  width: 80%;
   float: right;
   height: 100vh;
   justify-content: center;
@@ -84,7 +84,7 @@ a:hover {
 
 #WelcomePage {
   background-color: rgb(150, 173, 241);
-  width: 70%;
+  width: 80%;
   text-align: center;
   padding: 70px 0;
   justify-content: center;

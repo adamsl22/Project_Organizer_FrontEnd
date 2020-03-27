@@ -33,12 +33,13 @@ class ProjectsContainer extends React.Component{
         if (this.state.projectIndex === 0){
             this.setState({
                 projectIndex: finalIndex,
-                project: this.state.projects[this.state.projectIndex]
+                project: this.state.projects[finalIndex]
             })
         } else {
+            const newIndex = this.state.projectIndex - 1
             this.setState({
-                projectIndex: this.state.projectIndex - 1,
-                project: this.state.projects[this.state.projectIndex]
+                projectIndex: newIndex,
+                project: this.state.projects[newIndex]
             })
         }
     }
@@ -48,12 +49,13 @@ class ProjectsContainer extends React.Component{
         if (this.state.projectIndex === finalIndex){
             this.setState({
                 projectIndex: 0,
-                project: this.state.projects[this.state.projectIndex]
+                project: this.state.projects[0]
             })
         } else {
+            const newIndex = this.state.projectIndex + 1
             this.setState({
-                projectIndex: this.state.projectIndex + 1,
-                project: this.state.projects[this.state.projectIndex]
+                projectIndex: newIndex,
+                project: this.state.projects[newIndex]
             })
         }
     }

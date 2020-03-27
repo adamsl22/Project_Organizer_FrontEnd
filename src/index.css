@@ -67,7 +67,6 @@ a:hover {
 .project-card {
   align-self: center;
   text-align: center;
-  height: 300px;
   width: 400px;
   background-color: var(--bc);
 }
@@ -76,7 +75,7 @@ a:hover {
   background-color: rgb(192, 192, 192);
   height: 20px;
   font-size: 14px;
-  margin: 5px;
+  margin: 10px;
 }
 
 .li {

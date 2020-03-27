@@ -29,18 +29,30 @@ class ProjectsContainer extends React.Component{
     scrollLeft = () => {
         const finalIndex = this.state.projects.length - 1
         if (this.state.projectIndex === 0){
-            this.setState({projectIndex: finalIndex})
+            this.setState({
+                projectIndex: finalIndex,
+                project: this.state.projects[this.state.projectIndex]
+            })
         } else {
-            this.setState({projectIndex: this.state.projectIndex - 1})
+            this.setState({
+                projectIndex: this.state.projectIndex - 1,
+                project: this.state.projects[this.state.projectIndex]
+            })
         }
     }
 
     scrollRight = () => {
         const finalIndex = this.state.projects.length - 1
         if (this.state.projectIndex === finalIndex){
-            this.setState({projectIndex: 0})
+            this.setState({
+                projectIndex: 0,
+                project: this.state.projects[this.state.projectIndex]
+            })
         } else {
-            this.setState({projectIndex: this.state.projectIndex + 1})
+            this.setState({
+                projectIndex: this.state.projectIndex + 1,
+                project: this.state.projects[this.state.projectIndex]
+            })
         }
     }
 

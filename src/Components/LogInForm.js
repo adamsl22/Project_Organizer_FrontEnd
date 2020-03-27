@@ -41,12 +41,16 @@ class LogInForm extends React.Component {
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                Name: <input name='name' value={this.state.name} onChange={this.handleChange} placeholder='name'/>
-                Username: <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username'/>
-                Password: <input name='password' type='password' value={this.state.password} onChange={this.handleChange} placeholder='password'/>
-                <button type="submit">Submit</button>
-            </form>
+            <div>
+                <h1>Welcome to Git Organized!</h1>
+                <form onSubmit={this.handleSubmit}>
+                    {this.props.userNorR === 'N' && <div>Name: <input name='name' value={this.state.name} onChange={this.handleChange} placeholder='name'/><br></br></div>}
+                    Username: <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username'/><br></br>
+                    Password: <input name='password' type='password' value={this.state.password} onChange={this.handleChange} placeholder='password'/><br></br>
+                    <button className='card-button' type="submit">Submit</button>
+                </form><br></br><br></br>
+                <button className='card-button' onClick={this.props.back}>Back</button>
+            </div>
         )
     }
 }

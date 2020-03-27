@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectCard from '../Components/ProjectCard'
 import NewProjectForm from '../Components/NewProjectForm'
+import EditProjectForm from '../Components/EditProjectForm'
 
 const PROJCARD_URL = "http://localhost:3001/project_cards"
 
@@ -8,6 +9,7 @@ class ProjectsContainer extends React.Component{
     state = {
         projectIndex: 0,
         showNewProjectForm: false,
+        showEditForm: false,
         projects: [],
         project: null
     }
@@ -61,23 +63,51 @@ class ProjectsContainer extends React.Component{
     }
 
     showNewProject = (data) => {
+        const newProjects = this.state.projects.push(data)
+        const newFinalIndex = newProjects.length - 1
         this.setState({
+            projectIndex: newFinalIndex,
+            projects: newProjects,
             project: data
+        })
+    }
+
+    toggleEditForm = () => {
+        this.setState(prevState => ({showEditForm: !prevState.showEditForm}))
+    }
+
+    updateProject = (data) => {
+        this.setState({project: data})
+    }
+
+    removeProject = (id) => {
+        const newProjects = this.state.projects.filter(project => project.id !== id)
+        this.setState({
+            projectIndex: 0,
+            projects: newProjects,
+            project: this.state.projects[this.state.projectIndex]
         })
     }
 
     render(){
         return(
-            <div id='ProjectsContainer'>
+            <div className='projects-container'>
                 {this.state.showNewProjectForm ?
                 <NewProjectForm url={PROJCARD_URL} user={this.props.user} toggleForm={this.toggleNewProjectForm} showNewProject={this.showNewProject}/>
-                : <div id='ProjectsInner'><h1>My Projects</h1><br></br>
-                {this.state.project ? <div id='InnerInner'><ProjectCard key={this.state.project.id} project={this.state.project} addToDo={this.addToDo}/>
-                <div>
-                    <button id='left-button' className='scroll-button' onClick={this.scrollLeft}>Previous Project</button>
-                    <button id='right-button' className='scroll-button' onClick={this.scrollRight}>Next Project</button>
-                </div></div> : null }
-                <button id='new-project-button' onClick={this.toggleNewProjectForm}>Add New Project</button></div>}
+                : <div className='projects-container'>
+                    {this.state.showEditForm ?
+                    <EditProjectForm project={this.state.project} url={PROJCARD_URL} toggleForm={this.toggleEditForm} updateProject={this.updateProject} removeProject={this.removeProject}/>
+                    : <div className='projects-container'><h1>My Projects</h1><br></br>
+                        {this.state.project ? <div className='projects-container'>
+                            <ProjectCard key={this.state.project.id} project={this.state.project} toggleEditForm={this.toggleEditForm}/>
+                            <div>
+                                <button id='left-button' className='scroll-button' onClick={this.scrollLeft}>Previous Project</button>
+                                <button id='right-button' className='scroll-button' onClick={this.scrollRight}>Next Project</button>
+                            </div>
+                        </div> : null }
+                        <button id='new-project-button' onClick={this.toggleNewProjectForm}>Add New Project</button>
+                    </div>}
+                </div>}
             </div>
         )
     }

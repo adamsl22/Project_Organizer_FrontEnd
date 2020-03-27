@@ -53,7 +53,7 @@ a:hover {
   justify-content: center;
 }
 
-#ProjectsContainer {
+.projects-container {
   display: flex;
   flex-direction: column;
   align-content: flex-end;
@@ -116,18 +116,11 @@ a:hover {
   background-color: rgb(214, 219, 188);
 }
 
-#ProjectsInner {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-end;
-  justify-content: flex-start;
-}
-
-#InnerInner {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-end;
-  justify-content: flex-start;
+#EditProjectForm {
+  margin-top: 100px;
+  width: 500px;
+  align-self: center;
+  background-color: var(--bc);
 }
 
 #search-page {

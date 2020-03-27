@@ -42,10 +42,12 @@ class ProjectCard extends React.Component{
   }
 
   showBack = () => {
+    console.log(this.state.toDos)
     return (
       <div>
-        <h2>{this.props.project.name}</h2>
-        <h3>Tasks: {this.state.toDos && this.state.toDos.map(toDo => <li key={toDo.id} className='li'>{toDo.description}</li>)}</h3>
+        <h2>{this.props.project.name}</h2><button className='card-button' onClick={this.props.toggleEditForm}>Edit Project</button>
+        <h3>Tasks: {this.state.toDos && this.state.toDos.map(toDo => <li key={toDo.id} className='li'>{toDo.description}
+        <button className='card-button' id={toDo.id} onClick={this.deleteToDo}>Delete</button></li>)}</h3>
         {this.state.showingToDoForm ?
         <ToDoForm url={TO_DO_URL} project_id={this.props.project.id} addToDo={this.addToDo} toggleForm={this.toggleToDoForm}/>
         : <button className='card-button' onClick={this.toggleToDoForm}>Add Task</button>}
@@ -75,7 +77,13 @@ class ProjectCard extends React.Component{
         updateToDos = [data]
     }
     this.setState({toDos: updateToDos})
-}
+  }
+
+  deleteToDo = (e) => {
+    fetch(`${TO_DO_URL}/${e.target.id}`,{method: 'DELETE'})
+    const updateToDos = this.state.toDos.filter(toDo => toDo.id !== e.target.id)
+    this.setState({toDos: updateToDos})
+  }
 
   render(){
     document.documentElement.style.setProperty('--bc', this.props.project.color)

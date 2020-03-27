@@ -10,14 +10,14 @@ class WelcomePage extends React.Component{
         if (this.state.userNorR === null) {
             return (
                 <div>
-                    <h1>Welcome</h1>
-                    <button className="welcome-button" onClick={this.returningUser}>Returning User</button>
+                    <h1>Welcome to Git Organized!</h1>
+                    <button className="card-button" onClick={this.returningUser}>Returning User</button>
                     <h2>or</h2>
-                    <button className="welcome-button" onClick={this.newUser}>New User</button>
+                    <button className="card-button" onClick={this.newUser}>New User</button>
                 </div>
             )
         } else {
-            return <LogInForm userNorR={this.state.userNorR} setUser={this.props.setUser}/>
+            return <LogInForm userNorR={this.state.userNorR} setUser={this.props.setUser} back={this.backToWelcome}/>
         }
     }
 
@@ -26,6 +26,10 @@ class WelcomePage extends React.Component{
     }
     newUser = () => {
         this.setState({userNorR: 'N'})
+    }
+
+    backToWelcome = () => {
+        this.setState({userNorR: null})
     }
 
     render(){
